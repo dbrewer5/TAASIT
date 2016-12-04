@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(-1);
-   include("config.php");
+   include("css/config.php");
    session_start();
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form
@@ -34,11 +34,10 @@ error_reporting(-1);
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Login Page</title>
-		<link rel = "stylesheet" type = "text/css" href = "bootstrap.min.css">
-		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css">
+		<link rel = "stylesheet" type = "text/css" href = "css/bootstrap.min.css">
+		<link rel = "stylesheet" type = "text/css" href = "css/stylesheet.css">
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src = "functions.js"></script>
 	</head>
 	
 	<body>
@@ -61,9 +60,15 @@ error_reporting(-1);
 			</div>
 			<br />
 			<div class="empLog">
-				<form action = "" method = "post">
-					Employee ID&nbsp;<input type = "text" name = "username" class = "box"/><br />
-					Password&nbsp;<input type = "password" name = "password" class = "box"/><br/>
+				<form class = "form-inline" method = "post">
+					<div class = "form-group"  style = "padding:4px 0;">
+						<label for = "username">Employee ID:</label>
+						<input type = "text" class = "form-control" id = "username" name = "username" required>
+					</div>
+					<div class = "form-group" style = "padding:4px 0;">
+						<label for = "password">Password:</label>
+						<input type = "password" class = "form-control" id = "password" name = "password" required>
+					</div>
 					
 					<!----------------------------------------------------------------------------->
 					<?php
@@ -74,7 +79,7 @@ error_reporting(-1);
 					?>
 					<!----------------------------------------------------------------------------->
 					
-					<input type = "submit" value = " Submit " class = "btn btn-default"/><br />
+					<input type = "submit" value = " Submit " class = "btn btn-default" /><br />
 				</form>
 			</div>
 			<footer id="footer">

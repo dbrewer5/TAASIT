@@ -1,6 +1,6 @@
 <!-- PHP -->
 <?php
-   include('session.php');
+   include('php/session.php');
 ?>
 
 <!-- HTML -->
@@ -10,8 +10,8 @@
 	<head>
 		<meta http-equiv = "Content-Type" content = "text/html; charset=utf-8">
 		<title>Employee Dashboard </title>
-		<link rel = "stylesheet" type = "text/css" href = "bootstrap.min.css">
-		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css">
+		<link rel = "stylesheet" type = "text/css" href = "css/bootstrap.min.css">
+		<link rel = "stylesheet" type = "text/css" href = "css/stylesheet.css">
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
@@ -26,7 +26,7 @@
 				<div id = "top-nav">
 					<ul>
 					<li><a href = "employee_dash.php">Home</a></li>
-					<li><a href = "logout.php">Logout</a></li>
+					<li><a href = "php/logout.php">Logout</a></li>
 					<li><a href = "#">Help</a></li>
 					</ul>
 				</div>
@@ -103,7 +103,7 @@
 			function clock_query(query_id) {
 				var keyvalue = { id : query_id };
 				$.ajax({
-					url: "timeclock_queries.php",
+					url: "php/timeclock.php",
 					type: "POST",
 					data: keyvalue,
 					datatype: "json",
