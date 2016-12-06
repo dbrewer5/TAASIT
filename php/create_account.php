@@ -5,29 +5,25 @@
 	$firstName = $lastName = $streetAddress = $city = $zipCode = $state = $phoneNum = $employeeId = $password = "";
 	
 	$employeeId = $_POST["employeeId"];
+	$firstName = $_POST["firstName"];
+	$lastName = $_POST["lastName"];
+	$streetAddress = $_POST["streetAddress"];
+	$city = $_POST["city"];
+	$zipCode = $_POST["zipCode"];
+	$state = $_POST["state"];
+	$phoneNum = $_POST["phoneNum"];
+	$password = $_POST["password"];
 
-	$check_record_exists_sql = mysqli_query($db,"SELECT * FROM EMPLOYEE where EmployeeID = '$employeeId'");
+	$check_account_exists_sql = "SELECT * FROM EMPLOYEE WHERE EmployeeID = '$employeeId';";
+	$result = mysqli_query($db, $check_account_exists_sql);
 	
-	if ($check_record_exists_sql) {
-		die("Employee account already exists!");
+	if (mysqli_fetch_row($result)) {
+		echo "Employee account already exists!";
 	}
 	else {
-		$firstName = $_POST["firstName"];
-		$lastName = $_POST["lastName"];
-		$streetAddress = $_POST["streetAddress"];
-		$city = $_POST["city"];
-		$zipCode = $_POST["zipCode"];
-		$state = $_POST["state"];
-		$phoneNum = $_POST["phoneNum"];
-		$password = $_POST["password"];
-
-		$new_employee_sql = "INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, StreetAddress, City, Zip, ShortState, PhoneNumber, Password)
-								VALUES ('$employeeId', '$firstName', '$lastName', '$streetAddress', '$city', '$zipCode', '$state', '$phoneNum', '$password')";
-		$result = mysqli_query($db, $new_employee_sql);
-		
-		if ($result) {
-			die("Account was successfully created!");
-		}
+		$insert_employee_sql = "INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, StreetAddress, City, Zip, ShortState, PhoneNumber, Password) 
+								VALUES ('$employeeId', '$firstName', '$lastName', '$streetAddress', '$city', '$zipCode', '$state', '$phoneNum', '$password');";
+		mysqli_query($db, $insert_employee_sql);
+		echo "Employee account created successfully!";
 	}
-
 ?>

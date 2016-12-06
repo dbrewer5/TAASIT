@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(-1);
-   include("css/config.php");
+   include("php/config.php");
    session_start();
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form
