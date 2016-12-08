@@ -49,7 +49,7 @@
 							</ul>
 						</div>
 					</nav>
-					<div style = "padding-left: 250px; padding-top: 20;">
+					<div style = "padding-left: 250px; padding-top: 10px;">
 						<table class = "table table-striped">
 							<thead>
 								<tr>

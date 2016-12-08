@@ -18,7 +18,7 @@
 		echo "Employee account already exists!";
 	}
 	else {
-		$insert_employee_sql = "INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, StreetAddress, City, Zip, StateUS, PhoneNumber, Password) 
+		$insert_employee_sql = "INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, StreetAddress, City, Zip, ShortState, PhoneNumber, Password) 
 								VALUES ('$employeeId', '$firstName', '$lastName', '$streetAddress', '$city', '$zipCode', '$state', '$phoneNum', '$password');";
 		mysqli_query($db, $insert_employee_sql);
 		echo "Employee account created successfully!";

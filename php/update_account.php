@@ -16,7 +16,7 @@
 	// If account does exist in database
 	if (mysqli_fetch_row($result)) {
 		$update_account_sql = "UPDATE EMPLOYEE SET FirstName = '$firstName', LastName = '$lastName', StreetAddress = '$streetAddress',
-													City = '$city', Zip = '$zipCode', StateUS = '$state', PhoneNumber = '$phoneNum'
+													City = '$city', Zip = '$zipCode', ShortState = '$state', PhoneNumber = '$phoneNum'
 													WHERE EmployeeID = '$employeeId';";
 		$result = mysqli_query($db, $update_account_sql);
 		
