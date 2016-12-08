@@ -5,9 +5,9 @@ CREATE TABLE EMPLOYEE (
 	StreetAddress varchar(255) NOT NULL,
 	City varchar(255) NOT NULL,
 	Zip varchar(255) NOT NULL,
-	ShortState varchar(2) NOT NULL,
+	StateUS varchar(255) NOT NULL,
 	PhoneNumber varchar(14) NOT NULL,
-	Password varchar(16) default "temp",
+	Password varchar(20) default "temp",
 	IsManager boolean DEFAULT false,
 	IsActive boolean DEFAULT true,
 	PRIMARY KEY (EmployeeID)
@@ -22,8 +22,8 @@ CREATE TABLE TIME_CLOCKS (
 	FOREIGN KEY (EmployeeID) REFERENCES EMPLOYEE(EmployeeID)	
 );
 
-INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, StreetAddress, City, Zip, ShortState, PhoneNumber)
+INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, StreetAddress, City, Zip, StateUS, PhoneNumber)
 VALUES (20001, "John", "Smith", "1442 Margate Ave", "Tustin", "91231", "CA", "(714) 213-3211");
 
-INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, StreetAddress, City, Zip, ShortState, PhoneNumber, IsManager)
+INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, StreetAddress, City, Zip, StateUS, PhoneNumber, IsManager)
 VALUES (20003, "Mary", "Baldwin", "3212 Concate Cir", "Whisken", "71222", "AZ", "(551) 112-8912", true);

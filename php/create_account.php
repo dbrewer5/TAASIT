@@ -1,9 +1,6 @@
 <?php
 	include('session.php');
 	
-	// Define variables and set to empty values
-	$firstName = $lastName = $streetAddress = $city = $zipCode = $state = $phoneNum = $employeeId = $password = "";
-	
 	$employeeId = $_POST["employeeId"];
 	$firstName = $_POST["firstName"];
 	$lastName = $_POST["lastName"];
@@ -21,7 +18,7 @@
 		echo "Employee account already exists!";
 	}
 	else {
-		$insert_employee_sql = "INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, StreetAddress, City, Zip, ShortState, PhoneNumber, Password) 
+		$insert_employee_sql = "INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, StreetAddress, City, Zip, StateUS, PhoneNumber, Password) 
 								VALUES ('$employeeId', '$firstName', '$lastName', '$streetAddress', '$city', '$zipCode', '$state', '$phoneNum', '$password');";
 		mysqli_query($db, $insert_employee_sql);
 		echo "Employee account created successfully!";
