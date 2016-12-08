@@ -49,13 +49,30 @@
 							</ul>
 						</div>
 					</nav>
+					<div style = "padding-left: 250px; padding-top: 20;">
+						<table class = "table table-striped">
+							<thead>
+								<tr>
+									<th style = "color: black;">Time In</th>
+									<th style = "color: black;">Time Out</th>
+									<th style = "color: black;">Hours Worked [HH/MM/SS]</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+									$result = mysqli_query($db, "SELECT TimeIn, TimeOut, TIMEDIFF(TimeOut, TimeIn) FROM TIME_CLOCKS WHERE EmployeeID = '$login_session' AND TimeOut IS NOT NULL ORDER BY TimeID DESC LIMIT 10;");
+									while ($row = mysqli_fetch_array($result)) {
+										echo "<tr>";
+										echo "<td>" . $row[0] . "</td>";
+										echo "<td>" . $row[1] . "</td>";
+										echo "<td>" . $row[2] . "</td>";
+										echo "</tr>";
+									}
+								?>
+						</table>
+					</div>
 				</div>
-				<table>
-					<?php
-						$time_entries_sql = "SELECT TimeIn, TimeOut FROM TIME_CLOCKS WHERE EmployeeID = '$login_session' AND TimeOut IS NOT NULL;";
-						
-					?>
-				</table>
+				
 				<div class = "clr"></div>
 			</div>
 			
