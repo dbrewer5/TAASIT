@@ -3,6 +3,7 @@ ini_set('display_errors', 1);
 error_reporting(-1);
    include("php/config.php");
    session_start();
+   $invalid = false;
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
@@ -24,7 +25,7 @@ error_reporting(-1);
 		 }
       }
 	  else {
-         $_SESSION['message'] = 'Invalid ID or password.';
+		  $invalid = true;
       }
    }
 ?>
@@ -41,6 +42,25 @@ error_reporting(-1);
 	</head>
 	
 	<body>
+	
+		<!-- Login message modal -->
+		<div id = "loginMessageModal" class = "modal fade" role = "dialog">
+			<div class = "modal-dialog">
+				<div class = "modal-content">
+					<div class = "modal-header">
+						<button type = "button" class = "close" data-dismiss = "modal">&times;</button>
+						<h2 class= "modal-title">Login Message</h2>
+					</div>
+					<div class = "modal-body">
+						<h3><p>Invalid ID or password!</p></h3>
+					</div>
+					<div class = "modal-footer">
+						<button type = "button" class = "btn btn-default" data-dismiss = "modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	
 		<div id="page">
 			<header id="header">
 				<div id="logo">
@@ -72,9 +92,8 @@ error_reporting(-1);
 					
 					<!----------------------------------------------------------------------------->
 					<?php
-						if (isset($_SESSION['message'])) {
-							echo $_SESSION['message'];
-							unset ($_SESSION['message']);
+						if ($invalid) {
+							echo "<script>$('#loginMessageModal').modal('show');</script>";
 						}
 					?>
 					<!----------------------------------------------------------------------------->
@@ -87,6 +106,7 @@ error_reporting(-1);
 				<div class="clr"></div>
 			</footer>
 		</div>
+		
 	</body>
 	
 </html>
