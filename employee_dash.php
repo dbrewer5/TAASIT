@@ -46,6 +46,7 @@
 								<li><input type = "button" onclick = 'clock_query("clock-in-query")' value = "Clock-In" class = "btn btn-default" data-toggle = "modal" data-target = "#clockedIn"/></li>
 								<li><input type = "button" onclick = 'clock_query("clock-out-query")' value = "Clock-Out" class = "btn btn-default" data-toggle = "modal" data-target = "#clockedOut"/></li>
 								<li><input type = "button" id = "accountInfoButton" class = "btn btn-default" value = "Account Info"/></li>
+								<li><a href = "inventory.php" class = "btn btn-default">Inventory</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -69,6 +70,7 @@
 										echo "</tr>";
 									}
 								?>
+								</tbody>
 						</table>
 					</div>
 				</div>

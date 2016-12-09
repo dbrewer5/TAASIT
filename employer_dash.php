@@ -51,6 +51,8 @@
 								</div>
 								<li><input type = "button" value = "Create Account" class = "btn btn-default" data-toggle = "modal" data-target = "#createAccountModal"></li>
 								<li><input type = "button" value = "Account Search" class = "btn btn-default" data-toggle = "modal" data-target = "#accountSearchModal"></li>
+								<li><a href = "inventory.php" class = "btn btn-default">Inventory</a></li>
+								<li><a href = "humidity.php" class = "btn btn-default">Tracking</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -370,7 +372,8 @@
 		
 		<!-- Javascript -->
 		<script>
-			var VIDEO_FEED = ["http://192.168.1.165:8082"];
+			var VIDEO_FEED = ["http://192.168.1.165:8082",
+								"http://192.168.1.165:8083"];
 			
 			// Delete account submission
 			$("#deleteAccountButton").click(function(e) {
